@@ -1,0 +1,31 @@
+<div layout-padding style="margin: 4px 4px 4px 4px !important;">
+<form name="loginForm" layout="column" layout-align="space-between start" layout-fill layout-margin ng-submit="login(login.credentials)" >
+  <!-- <img class="img-responsive" src="../../assets/img/apeclogo.png"> -->
+  <h2 style="font-weight:normal; margin-top: 0px !important;" ng-hide="createdNow">sign in to your account</h2>
+  <md-input-container class="md-block" layout-fill >
+    <label>
+      email
+    </label>
+    <input type="text" ng-model="login.credentials.username" aria-label="username" required/>
+  </md-input-container>
+  <md-input-container class="md-block" layout-fill>
+    <label>
+      Password
+    </label>
+    <input type="password" ng-model="login.credentials.password" aria-label="password" required/>
+  </md-input-container>
+  <a  href="#">Forgotten Password?</a>
+  <div layout="row" layout-align="space-between center" layout-fill>
+    <md-button type="submit" class="md-raised md-primary" layout-fill aria-label="login" ng-disabled="login.loginForm.$invalid()" style="color:#fff !important;">Sign In
+    </md-button>
+  </div>
+  <h2 style="font-weight:normal; margin-top: 0px !important;" ng-hide="createdNow">or</h2>
+  <div layout="row" layout-align="space-between center" layout-fill ng-hide="createdNow">
+    <md-button ng-click="null" class="md-raised md-primary" layout-fill aria-label="login" ng-disabled="register.registerForm.$invalid()" style="color:#fff !important;">login with facebook
+    </md-button>
+  </div>
+</form>
+<md-toolbar ng-if="loginerror" class="md-warn" layout="row" layout-fill layout-padding layout-margin>
+  <p class="md-body-1">{{ loginerror }}</p>
+</md-toolbar>
+</div>

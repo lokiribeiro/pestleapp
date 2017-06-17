@@ -1,0 +1,48 @@
+<div layout-padding style="margin: 4px 4px 4px 4px !important;">
+<form name="registerForm" layout="column" layout-align="space-between start" layout-fill layout-margin ng-submit="registerUser(register.credentials, profile)">
+  <!-- <img class="img-responsive" src="../../assets/img/apeclogo.png"> -->
+  <div layout="row" layout-align="space-between start" flex>
+<h2 style="font-weight:normal; margin-top: 0px !important;" ng-hide="createdNow">Register a new account</h2>
+<h2 style="font-weight:normal" ng-if="done">Creating new user</h2>
+<h2 style="font-weight:normal" ng-if="createdNows"><md-icon md-svg-icon="../../assets/img/indigo_check24.svg" style="margin: auto 3px auto 0;" ></md-icon> Check your email to verify your account</h2>
+<span flex></span>
+</div>
+<md-progress-circular md-mode="indeterminate" ng-show="done" ></md-progress-circular>
+  <md-input-container class="md-block" layout-fill ng-hide="createdNow">
+    <label>
+      Email
+    </label>
+    <input type="text" ng-model="register.credentials.email" aria-label="email" required/>
+  </md-input-container>
+  <md-input-container class="md-block" layout-fill ng-hide="createdNow">
+    <label>
+      Password
+    </label>
+    <input type="password" ng-model="register.credentials.password" aria-label="password" required/>
+  </md-input-container>
+  <md-input-container class="md-block" layout-fill ng-hide="createdNow">
+    <label>
+      Repeat Password
+    </label>
+    <input type="password" ng-model="repeatPass" aria-label="password" required/>
+  </md-input-container>
+  <div layout="row" layout-align="space-between start" layout-fill ng-hide="createdNow">
+    <a href="/" style="margin-right: 8px !important;">
+      <md-button type="submit" class="md-raised md-primary" layout-fill aria-label="login" ng-disabled="register.registerForm.$invalid()">
+        <md-icon md-svg-icon="../../assets/img/white_chevronleft24.svg"></md-icon>
+      </md-button>
+    </a>
+    <md-button type="submit" class="md-raised md-primary" layout-fill aria-label="login" ng-disabled="register.registerForm.$invalid()" style="color:#fff !important;">Register
+    </md-button>
+  </div>
+  <h2 style="font-weight:normal; margin-top: 0px !important;" ng-hide="createdNow">or</h2>
+  <div layout="row" layout-align="space-between center" layout-fill ng-hide="createdNow">
+    <md-button ng-click="null" class="md-raised md-primary" layout-fill aria-label="login" ng-disabled="register.registerForm.$invalid()" style="color:#fff !important;">login with facebook
+    </md-button>
+  </div>
+  <!-- <a href="#" ng-click="signOut()">Sign out</a> -->
+</form>
+<md-toolbar ng-if="loginerror" class="md-primary" layout="row" layout-fill layout-padding layout-margin>
+  <p class="md-body-1">{{ loginerror }}</p>
+</md-toolbar>
+</div>
